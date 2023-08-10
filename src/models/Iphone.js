@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+
+const { Schema } = mongoose;
+
+const IPhone = new Schema({
+    // id: { type: Number, required: true },
+    // path: { type: String, required: true },
+    // category: { type: String, required: true },
+    // nameBlog: { type: String },
+    // name: { type: String, required: true },
+    // capacity: { type: String, required: true },
+    // colorPopular: { type: String, required: true },
+    // color : {
+    //     popular: { type: String, required: true},
+    //     listColor: [
+    //     ]
+    // }
+});
+
+module.exports = mongoose.model('IPhone', IPhone);

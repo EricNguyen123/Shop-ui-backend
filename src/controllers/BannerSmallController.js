@@ -4,7 +4,7 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 class BannerSmallController {
     index(req, res, next) {
         BannerSmall.find({})
-            .then((banners) => res.json({ bannerSmall: banners }))
+            .then((banners) => res.json(mutipleMongooseToObject(banners)))
             .catch(next);
     }
 }

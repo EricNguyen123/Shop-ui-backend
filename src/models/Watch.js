@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const IPhone = new Schema({
+const Watch = new Schema({
     id: { type: Number, required: true },
     path: { type: String, required: true },
     category: { type: String, required: true },
@@ -20,4 +20,4 @@ const IPhone = new Schema({
     productEndow: { type: Number },
 });
 
-module.exports = mongoose.model('IPhone', IPhone);
+module.exports = mongoose.model('Watch', Watch);

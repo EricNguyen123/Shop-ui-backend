@@ -4,12 +4,15 @@ const cors = require('cors');
 const morgan = require('morgan');
 const db = require('./config/db');
 const route = require('./routes');
+const bodyParser = require('body-parser');
 
 const port = 3002;
 
 db.connect();
 
 app.use(cors());
+
+app.use(bodyParser.json());
 
 app.use(morgan('combined'));
 

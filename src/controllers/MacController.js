@@ -13,7 +13,7 @@ class MacController {
             .then((macs) => {
                 const array = [...mutipleMongooseToObject(macs)];
                 if (id !== undefined) {
-                    const mac = array.find((b) => Number(b.id) === Number(id));
+                    const mac = array.find((b) => String(b._id) === String(id));
                     return res.json([mac]);
                 } else if (category !== undefined && pageSize !== undefined && page !== undefined) {
                     const mac = array.filter((b) => b.category === category);
@@ -29,6 +29,11 @@ class MacController {
                     return res.json([...array]);
                 }
             })
+            .catch(next);
+    }
+    item(req, res, next) {
+        Mac.findOne({ path: req.params.slug })
+            .then((item) => res.json([item]))
             .catch(next);
     }
 }

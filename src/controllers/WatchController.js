@@ -13,7 +13,7 @@ class WatchController {
             .then((watchs) => {
                 const array = [...mutipleMongooseToObject(watchs)];
                 if (id !== undefined) {
-                    const watch = array.find((b) => Number(b.id) === Number(id));
+                    const watch = array.find((b) => String(b._id) === String(id));
                     return res.json([watch]);
                 } else if (category !== undefined && pageSize !== undefined && page !== undefined) {
                     const watch = array.filter((b) => b.category === category);
@@ -29,6 +29,11 @@ class WatchController {
                     return res.json([...array]);
                 }
             })
+            .catch(next);
+    }
+    item(req, res, next) {
+        Watch.findOne({ path: req.params.slug })
+            .then((item) => res.json([item]))
             .catch(next);
     }
 }

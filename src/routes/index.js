@@ -13,6 +13,9 @@ const Blog = require('./Blog');
 const Rating = require('./Rating');
 const Comment = require('./Comment');
 const ServiceUser = require('./ServiceUser');
+const Address = require('./Address');
+const Client = require('./Client');
+const DataUser = require('./DataUser');
 
 function route(app) {
     app.use('/banner', Banner);
@@ -30,6 +33,9 @@ function route(app) {
     app.use('/rating', Rating);
     app.use('/comment', Comment);
     app.use('/serviceUser', ServiceUser);
+    app.use('/address', Address);
+    app.use('/client', Client);
+    app.use('/dataUsers', DataUser);
 }
 
 module.exports = route;

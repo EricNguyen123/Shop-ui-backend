@@ -10,7 +10,7 @@ class CommentController {
         Comment.find({})
             .then((items) => {
                 const sortOrder = req.query._order || 'asc'; // Lấy tham số sắp xếp từ query string
-                const sortBy = req.query._sort || '_id'; // Lấy tham số sắp xếp từ query string
+
                 const array = [...mutipleMongooseToObject(items)];
                 const arraySort = array.filter((e) => e.title === req.query.title);
                 const sortedItems = arraySort.sort((a, b) => {
